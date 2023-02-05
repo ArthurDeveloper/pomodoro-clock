@@ -1,9 +1,15 @@
 <form [formGroup]="clockForm">
-	<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
-	<input type="number" placeholder="Work time: " formControlName="workTime"/>
-	<input type="number" placeholder="Rest time: " formControlName="restTime"/>
-	<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
+	<h1 class="heading">Pomodoro clock</h1>
+
+	<div class="inputs">
+		<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
+		<input type="number" placeholder="Work time: " formControlName="workTime"/>
+		<input type="number" placeholder="Rest time: " formControlName="restTime"/>
+		<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
 	
+		<button type="submit" (click)="startClock()">Start</button>
+	</div>
+
 	<div class="error-message" *ngIf="cycleCount?.invalid">
 		Cycle count must be between 0 and 10
 	</div>
@@ -19,6 +25,4 @@
 	<div class="error-message" *ngIf="finalRestTime?.invalid">
 		Final rest time must be between 20 and 60
 	</div>
-
-	<button type="submit" (click)="startClock()">Start</button>
 </form>
