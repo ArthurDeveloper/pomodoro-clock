@@ -21,3 +21,16 @@ input[type="number"] {
 button[type="submit"] {
 	margin-top: 0.5rem;	
 }
+
+@keyframes error-shake {
+	0% { transform: translateX(0rem) } 
+	25% { transform: translateX(-2rem); }
+	50% { transform: translateX(2rem); }
+	75% { transform: translateX(-2rem); }
+	100% { transform: translateX(0rem); }
+}
+
+.error-message {
+	color: #f00;
+	animation: 300ms ease error-shake;
+}
