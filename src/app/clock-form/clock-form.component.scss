@@ -12,10 +12,10 @@ input[type="number"] {
 	font-size: 1.5rem;
 	color: #888;
 	transition: 500ms ease color;
-}
 
-input[type="number"]:focus, input[type="number"]:hover {
-	color: #000;
+	&:focus, &:hover {
+		color: #000;
+	}
 }
 
 button[type="submit"] {
