@@ -8,7 +8,7 @@
 			<input type="number" placeholder="Rest time: " formControlName="restTime"/>
 			<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
 		
-			<button type="submit" (click)="startClock()">Start</button>
+			<button type="submit" [ngClass]="clockIsActive ? 'disabled' : ''" (click)="toggleClock()">{{clockIsActive ? 'Stop' : 'Start'}}</button>
 		</div>
 
 		<div class="error-message" *ngIf="cycleCount?.invalid">

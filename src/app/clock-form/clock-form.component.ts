@@ -39,8 +39,8 @@ export class ClockFormComponent {
 
 	clockIsActive = false;
 
-	startClock(): void {
-		this.clockIsActive = true;		
+	toggleClock(): void {
+		this.clockIsActive = !this.clockIsActive;		
 	}
 
 	get cycleCount() { return this.clockForm.get('cycleCount') };
