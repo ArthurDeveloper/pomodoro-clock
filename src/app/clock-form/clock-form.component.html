@@ -32,6 +32,7 @@
 		[cycleCount]="utilities.clamp(cycleCount?.value ?? 0, 1, 5)"
 		[workTime]="utilities.clamp(workTime?.value ?? 0, 20, 60)"
 		[restTime]="utilities.clamp(restTime?.value ?? 0, 5, 30)"
+		[finalRestTime]="utilities.clamp(finalRestTime?.value ?? 0, 20, 60)"
 		[active]="clockIsActive"
 		(end)="finish()"
 	></app-clock>

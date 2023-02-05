@@ -17,8 +17,10 @@ export class ClockComponent implements OnInit, OnChanges {
 	@Input() cycleCount: number = 0;
 	@Input() workTime: number = 0;
 	@Input() restTime: number = 0;
+	@Input() finalRestTime: number = 0;
 
 	inRest: boolean = false;
+	inFinalRest: boolean = false;
 
 	interval: ReturnType<typeof setInterval> | null = null;
 
@@ -39,17 +41,26 @@ export class ClockComponent implements OnInit, OnChanges {
 				}
 			}
 
+			if (this.cycleCount == 0) {
+				if (!this.inFinalRest) {
+					this.inFinalRest = true;
+					this.minutes = this.finalRestTime;
+					this.seconds = 59;
+				}
+				
+				if (this.minutes === 0) {
+					clearInterval(this.interval!);
+					this.inFinalRest = false;
+					this.minutes = 0;
+					this.seconds = 0;
+					this.finishCycles();
+				}
+			}
+
 			if (this.minutes === 0) {
 				if (this.inRest) this.cycleCount--;
 				this.inRest = !this.inRest;
 				this.minutes = this.inRest ? this.restTime : this.workTime;
-			}
-
-			if (this.cycleCount == 0) {
-				clearInterval(this.interval!);
-				this.minutes = 0;
-				this.seconds = 0;
-				this.finishCycles();
 			}
 		}, 1);
 	}
