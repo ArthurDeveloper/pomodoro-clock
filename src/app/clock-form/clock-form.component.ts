@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UtilsService } from '../utils.service';
 
 type ClockFormType = {
 	cycleCount: FormControl<number>,
@@ -14,6 +15,8 @@ type ClockFormType = {
 	styleUrls: ['./clock-form.component.scss'],
 })
 export class ClockFormComponent {
+	utilities = new UtilsService();
+
 	clockForm: FormGroup<ClockFormType> = new FormGroup({
 		cycleCount: new FormControl(5, [
 			Validators.required,
