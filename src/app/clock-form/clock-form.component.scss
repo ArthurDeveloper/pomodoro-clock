@@ -38,7 +38,32 @@ input[type="number"] {
 }
 
 button[type="submit"] {
+	position: relative;
 	margin-top: 0.5rem;	
+	padding: 0.2rem auto 0.2rem auto;
+	font-size: 1rem;
+	background: transparent;
+	border: none;
+	&:after {
+		display: inline-block;
+		content: '';
+		background: linear-gradient(90deg, #141dd9 50%, #570fd4);;
+		width: 0;
+		height: 0.2rem;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transition: 100ms ease all;
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		&:after {
+			width: 100%;
+			left: 0;
+		}
+	}
 }
 
 @keyframes error-shake {
