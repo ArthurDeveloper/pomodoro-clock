@@ -1,3 +1,9 @@
 <aside class="clock">
-	00:00
+	{{minutes.toLocaleString('en-US', {
+		minimumIntegerDigits: 2,
+		useGrouping: false
+	  })}}:{{seconds.toLocaleString('en-US', {
+		minimumIntegerDigits: 2,
+		useGrouping: false
+	  })}}
 </aside>
