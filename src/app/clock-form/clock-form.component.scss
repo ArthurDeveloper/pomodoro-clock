@@ -1,5 +1,17 @@
+.clock-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 5rem;
+	place-items: center;
+	background: #fff;
+	width: 50rem;
+	height: 30rem;
+	border-radius: 1rem;
+	padding: 3rem;
+}
+
 .heading {
-	font-size: 2rem;
+	font-size: 2.8rem;
 	font-weight: 500;
 	text-align: center;
 	margin-top: 4rem;
@@ -9,7 +21,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 5rem;
+	padding: 2.5rem;
 	gap: 0.5rem;
 }
 

@@ -1,28 +1,32 @@
-<form [formGroup]="clockForm">
-	<h1 class="heading">Pomodoro clock</h1>
+<div class="clock-container">
+	<form [formGroup]="clockForm">
+		<h1 class="heading">Pomodoro clock</h1>
 
-	<div class="inputs">
-		<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
-		<input type="number" placeholder="Work time: " formControlName="workTime"/>
-		<input type="number" placeholder="Rest time: " formControlName="restTime"/>
-		<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
-	
-		<button type="submit" (click)="startClock()">Start</button>
-	</div>
+		<div class="inputs">
+			<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
+			<input type="number" placeholder="Work time: " formControlName="workTime"/>
+			<input type="number" placeholder="Rest time: " formControlName="restTime"/>
+			<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
+		
+			<button type="submit" (click)="startClock()">Start</button>
+		</div>
 
-	<div class="error-message" *ngIf="cycleCount?.invalid">
-		Cycle count must be between 0 and 10
-	</div>
+		<div class="error-message" *ngIf="cycleCount?.invalid">
+			Cycle count must be between 0 and 10
+		</div>
 
-	<div class="error-message" *ngIf="workTime?.invalid">
-		Work time must be between 20 and 60
-	</div>
+		<div class="error-message" *ngIf="workTime?.invalid">
+			Work time must be between 20 and 60
+		</div>
 
-	<div class="error-message" *ngIf="restTime?.invalid">
-		Rest time must be between 5 and 30
-	</div>
+		<div class="error-message" *ngIf="restTime?.invalid">
+			Rest time must be between 5 and 30
+		</div>
 
-	<div class="error-message" *ngIf="finalRestTime?.invalid">
-		Final rest time must be between 20 and 60
-	</div>
-</form>
+		<div class="error-message" *ngIf="finalRestTime?.invalid">
+			Final rest time must be between 20 and 60
+		</div>
+	</form>
+
+	<app-clock></app-clock>
+</div>
