@@ -8,7 +8,15 @@
 	}
 
 	input[type="number"] {
+		width: 15rem;
+		height: 2rem;
+		font-size: 1.5rem;
+		color: #888;
+		transition: 500ms ease color;
+	}
 
+	input[type="number"]:focus {
+		color: #000;
 	}
 
 	button[type="submit"] {
@@ -16,7 +24,8 @@
 	}
 </style>
 
-<form [formGroup]="clockForm">
+<form [formGroup]="clockForm"
+>
 	<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
 	<input type="number" placeholder="Work time: " formControlName="workTime"/>
 	<input type="number" placeholder="Rest time: " formControlName="restTime"/>
