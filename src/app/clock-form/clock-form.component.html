@@ -3,10 +3,25 @@
 		<h1 class="heading">Pomodoro clock</h1>
 
 		<div class="inputs">
-			<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
-			<input type="number" placeholder="Work time: " formControlName="workTime"/>
-			<input type="number" placeholder="Rest time: " formControlName="restTime"/>
-			<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
+			<div class="input-container">
+				<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
+				<label>Cycle count: </label>
+			</div>
+
+			<div class="input-container">
+				<input type="number" placeholder="Work time: " formControlName="workTime"/>
+				<label>Work time: </label>
+			</div>
+
+			<div class="input-container">
+				<input type="number" placeholder="Rest time: " formControlName="restTime"/>
+				<label>Rest time: </label>
+			</div>
+			
+			<div class="input-container">
+				<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
+				<label>Final rest time: </label>
+			</div>
 		
 			<button type="submit" [ngClass]="clockIsActive ? 'disabled' : ''" (click)="toggleClock()">{{clockIsActive ? 'Stop' : 'Start'}}</button>
 		</div>

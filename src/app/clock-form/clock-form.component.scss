@@ -14,27 +14,44 @@
 	font-size: 2.8rem;
 	font-weight: 500;
 	text-align: center;
-	margin-top: 4rem;
+	margin-top: 2rem;
+	margin-bottom: 4rem;
 }
 
 .inputs {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 2.5rem;
-	gap: 0.5rem;
+	padding: 0 2.5rem 0 2.5rem;
+	gap: 2.5rem;
+}
+
+.input-container {
+	position: relative;
+	width: 17rem;
+	height: 2rem;
 }
 
 input[type="number"] {
-	width: 15rem;
-	height: 2rem;
+	width: 100%;
+	height: 100%;
 	font-size: 1.5rem;
 	color: #888;
 	transition: 500ms ease color;
+	border: none;
+	border-bottom: #ccc 1px solid;
 
 	&:focus, &:hover {
 		color: #000;
 	}
+}
+
+label {
+	position: absolute;
+	top: -1rem;
+	left: 3px;
+	font-size: 0.8rem;
+	color: #555;
 }
 
 button[type="submit"] {
