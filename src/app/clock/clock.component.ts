@@ -40,9 +40,9 @@ export class ClockComponent implements OnInit, OnChanges {
 			}
 
 			if (this.minutes === 0) {
+				if (this.inRest) this.cycleCount--;
 				this.inRest = !this.inRest;
 				this.minutes = this.inRest ? this.restTime : this.workTime;
-				this.cycleCount--;
 			}
 
 			if (this.cycleCount == 0) {
@@ -51,7 +51,7 @@ export class ClockComponent implements OnInit, OnChanges {
 				this.seconds = 0;
 				this.finishCycles();
 			}
-		}, 1000);
+		}, 1);
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {
