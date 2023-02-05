@@ -23,7 +23,7 @@ button[type="submit"] {
 }
 
 @keyframes error-shake {
-	0% { transform: translateX(0rem) } 
+	0% { transform: translateX(0rem); } 
 	25% { transform: translateX(-2rem); }
 	50% { transform: translateX(2rem); }
 	75% { transform: translateX(-2rem); }
@@ -31,6 +31,13 @@ button[type="submit"] {
 }
 
 .error-message {
-	color: #f00;
+	display: none;
+	position: absolute;
+	top: calc(100% - 6rem);
+	background: #f00;
+	color: #fff;
 	animation: 300ms ease error-shake;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	font-size: 0.9rem;
 }
