@@ -1,0 +1,24 @@
+<form [formGroup]="clockForm">
+	<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
+	<input type="number" placeholder="Work time: " formControlName="workTime"/>
+	<input type="number" placeholder="Rest time: " formControlName="restTime"/>
+	<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
+	
+	<div *ngIf="cycleCount?.invalid">
+		Cycle count must be between 0 and 10
+	</div>
+
+	<div *ngIf="workTime?.invalid">
+		Work time must be between 20 and 60
+	</div>
+
+	<div *ngIf="restTime?.invalid">
+		Rest time must be between 5 and 30
+	</div>
+
+	<div *ngIf="finalRestTime?.invalid">
+		Final rest time must be between 20 and 60
+	</div>
+
+	<button (click)="startClock()">Start</button>
+</form>
