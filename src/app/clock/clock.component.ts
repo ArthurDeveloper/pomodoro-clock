@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { UtilsService } from '../utils.service';
 
 @Component({
 	selector: 'app-clock',
@@ -6,6 +7,8 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 	styleUrls: ['./clock.component.scss']
 })
 export class ClockComponent implements OnInit, OnChanges {
+	utilities: UtilsService = new UtilsService();
+
 	minutes: number = 0;
 	seconds: number = 0;
 	
@@ -17,8 +20,16 @@ export class ClockComponent implements OnInit, OnChanges {
 
 	inRest: boolean = false;
 
+	interval: ReturnType<typeof setInterval> | null = null;
+
+	@Output() end: EventEmitter<null> = new EventEmitter();
+
+	finishCycles(): void {
+		this.end.emit();
+	}
+
 	ngOnInit(): void {
-		setInterval(() => {
+		this.interval = setInterval(() => {
 			if (this.active) {
 				if (this.seconds > 0) {
 					this.seconds--;
@@ -31,6 +42,14 @@ export class ClockComponent implements OnInit, OnChanges {
 			if (this.minutes === 0) {
 				this.inRest = !this.inRest;
 				this.minutes = this.inRest ? this.restTime : this.workTime;
+				this.cycleCount--;
+			}
+
+			if (this.cycleCount == 0) {
+				clearInterval(this.interval!);
+				this.minutes = 0;
+				this.seconds = 0;
+				this.finishCycles();
 			}
 		}, 1000);
 	}

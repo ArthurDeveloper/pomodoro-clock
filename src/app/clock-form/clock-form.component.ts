@@ -46,6 +46,10 @@ export class ClockFormComponent {
 		this.clockIsActive = !this.clockIsActive;		
 	}
 
+	finish(): void {
+		this.clockIsActive = false;
+	}
+
 	get cycleCount() { return this.clockForm.get('cycleCount') };
 	get workTime() { return this.clockForm.get('workTime') };
 	get restTime() { return this.clockForm.get('restTime') };
