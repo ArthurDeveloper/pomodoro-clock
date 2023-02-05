@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { NotificationService } from '../notification.service';
 import { UtilsService } from '../utils.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { UtilsService } from '../utils.service';
 })
 export class ClockComponent implements OnInit, OnChanges {
 	utilities: UtilsService = new UtilsService();
+	notifications: NotificationService = new NotificationService();
 
 	minutes: number = 0;
 	seconds: number = 0;
@@ -54,6 +56,11 @@ export class ClockComponent implements OnInit, OnChanges {
 					this.minutes = 0;
 					this.seconds = 0;
 					this.finishCycles();
+					this.notifications.notify({ 
+						title: 'You\'re finished!', 
+						body: 'You may click the start button again to start another pomodoro',
+					});
+					return;
 				}
 			}
 
@@ -61,8 +68,25 @@ export class ClockComponent implements OnInit, OnChanges {
 				if (this.inRest) this.cycleCount--;
 				this.inRest = !this.inRest;
 				this.minutes = this.inRest ? this.restTime : this.workTime;
+				if (this.inRest) {
+					this.notifications.notify({ 
+						title: 'Rest time!', 
+						body: 'Refresh your mind from the work' 
+					});
+				} else if (this.inFinalRest) {
+					this.notifications.notify({ 
+						title: 'Long rest!', 
+						body: 'You have worked enough. Enjoy some more minutes of resting before '+
+							  'going into another cycle...' 
+					});
+				} else {
+					this.notifications.notify({ 
+						title: 'Back to work!', 
+						body: 'Your rest time has ended' 
+					});
+				}
 			}
-		}, 1);
+		}, 1000);
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {

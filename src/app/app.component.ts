@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotificationService } from './notification.service';
 import { UtilsService } from './utils.service';
 
 @Component({
@@ -6,7 +7,8 @@ import { UtilsService } from './utils.service';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 	providers: [
-		UtilsService
+		UtilsService,
+		NotificationService,
 	]
 })
 export class AppComponent {
