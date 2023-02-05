@@ -28,5 +28,5 @@
 		</div>
 	</form>
 
-	<app-clock></app-clock>
+	<app-clock [minutes]="workTime?.value ?? 0" [active]="clockIsActive"></app-clock>
 </div>

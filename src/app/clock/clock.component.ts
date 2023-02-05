@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-clock',
@@ -6,18 +6,20 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./clock.component.scss']
 })
 export class ClockComponent implements OnInit {
-	minutes: number = 5;
-	seconds: number = 59;
+	@Input() minutes: number = 0;
+	seconds: number = 0;
+	@Input() active: boolean = false;
 
 	ngOnInit(): void {
 		setInterval(() => {
-			if (this.seconds > 0) {
-				this.seconds--;
-			} else if (this.minutes > 0) {
-				this.minutes--;
-				this.seconds = 59;
+			if (this.active) {
+				if (this.seconds > 0) {
+					this.seconds--;
+				} else if (this.minutes > 0) {
+					this.minutes--;
+					this.seconds = 59;
+				}
 			}
 		}, 1000);
 	}
-
 }

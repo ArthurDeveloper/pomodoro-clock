@@ -13,7 +13,7 @@ type ClockFormType = {
 	templateUrl: './clock-form.component.html',
 	styleUrls: ['./clock-form.component.scss'],
 })
-export class ClockFormComponent implements OnInit {
+export class ClockFormComponent {
 	clockForm: FormGroup<ClockFormType> = new FormGroup({
 		cycleCount: new FormControl(5, [
 			Validators.required,
@@ -37,13 +37,10 @@ export class ClockFormComponent implements OnInit {
 		])
 	} as ClockFormType);
 
-	ngOnInit(): void {
-
-	}
+	clockIsActive = false;
 
 	startClock(): void {
-		alert('Button working!');
-		alert(this.clockForm.get('cycleCount')?.value);
+		this.clockIsActive = true;		
 	}
 
 	get cycleCount() { return this.clockForm.get('cycleCount') };
