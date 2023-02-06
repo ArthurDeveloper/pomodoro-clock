@@ -1,0 +1,9 @@
+{
+	"heading": "Relógio pomodoro",
+	"cycle-label": "Ciclos: ",
+	"work-label": "Tempo de trabalho: ",
+	"rest-label": "Tempo de descanso: ",
+	"frest-label": "Descanso final: ",
+	"start-btn": "Iniciar",
+	"stop-btn": "Parar"
+}

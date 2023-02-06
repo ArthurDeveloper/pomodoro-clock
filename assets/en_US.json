@@ -1,0 +1,9 @@
+{
+	"heading": "Pomodoro clock",
+	"cycle-label": "Cycle count: ",
+	"work-label": "Work time: ",
+	"rest-label": "Rest time: ",
+	"frest-label": "Final rest time: ",
+	"start-btn": "Start",
+	"stop-btn": "Stop"
+}
