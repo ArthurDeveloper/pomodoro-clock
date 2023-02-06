@@ -1,29 +1,35 @@
 <div class="clock-container">
 	<form [formGroup]="clockForm">
-		<h1 class="heading">Pomodoro clock</h1>
+		<h1 class="heading">{{translations.get('heading')}}</h1>
 
 		<div class="inputs">
 			<div class="input-container">
-				<input type="number" placeholder="Cycle count:" formControlName="cycleCount" />
-				<label>Cycle count: </label>
+				<input type="number" [placeholder]="translations.get('cycle-label')" formControlName="cycleCount" />
+				<label>{{translations.get('cycle-label')}}</label>
 			</div>
 
 			<div class="input-container">
-				<input type="number" placeholder="Work time: " formControlName="workTime"/>
-				<label>Work time: </label>
+				<input type="number" [placeholder]="translations.get('work-label')" formControlName="workTime"/>
+				<label>{{translations.get('work-label')}}</label>
 			</div>
 
 			<div class="input-container">
-				<input type="number" placeholder="Rest time: " formControlName="restTime"/>
-				<label>Rest time: </label>
+				<input type="number" [placeholder]="translations.get('rest-label')" formControlName="restTime"/>
+				<label>{{translations.get('rest-label')}}</label>
 			</div>
 			
 			<div class="input-container">
-				<input type="number" placeholder="Final rest time: " formControlName="finalRestTime" />
-				<label>Final rest time: </label>
+				<input type="number" [placeholder]="translations.get('frest-label')" formControlName="finalRestTime" />
+				<label>{{translations.get('frest-label')}}</label>
 			</div>
 		
-			<button type="submit" [ngClass]="clockIsActive ? 'disabled' : ''" (click)="toggleClock()">{{clockIsActive ? 'Stop' : 'Start'}}</button>
+			<button 
+				type="submit"
+				[ngClass]="clockIsActive ? 'disabled' : ''"
+				(click)="toggleClock()"
+			>
+				{{clockIsActive ? translations.get('stop-btn') : translations.get('start-btn')}}
+			</button>
 		</div>
 
 		<div class="error-message" *ngIf="cycleCount?.invalid">
